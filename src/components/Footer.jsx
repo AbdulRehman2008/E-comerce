@@ -84,12 +84,12 @@ const Footer = () => {
         {/* Payment Methods */}
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-wrap justify-center gap-6">
-            <img src="/payment/visa.svg" alt="Visa" className="h-8" />
-            <img src="/payment/mastercard.svg" alt="Mastercard" className="h-8" />
-            <img src="/payment/amex.svg" alt="American Express" className="h-8" />
-            <img src="/payment/paypal.svg" alt="PayPal" className="h-8" />
-            <img src="/payment/apple-pay.svg" alt="Apple Pay" className="h-8" />
-            <img src="/payment/google-pay.svg" alt="Google Pay" className="h-8" />
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/visa.svg" alt="Visa" className="h-8 invert" />
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/mastercard.svg" alt="Mastercard" className="h-8 invert" />
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/americanexpress.svg" alt="American Express" className="h-8 invert" />
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/paypal.svg" alt="PayPal" className="h-8 invert" />
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/applepay.svg" alt="Apple Pay" className="h-8 invert" />
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlepay.svg" alt="Google Pay" className="h-8 invert" />
           </div>
         </div>
 
