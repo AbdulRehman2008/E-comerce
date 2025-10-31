@@ -55,8 +55,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">Our Location</h3>
-                    <p className="mt-1 text-gray-600">123 Fashion Street</p>
-                    <p className="text-gray-600">New York, NY 10001</p>
+                    <p className="mt-1 text-gray-600">Karachi, Pakistan</p>
+                    <p className="text-gray-600">New Kumhar Wara Chowk</p>
                   </div>
                 </div>
 
@@ -66,7 +66,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">Phone</h3>
-                    <p className="mt-1 text-gray-600">+1 (555) 123-4567</p>
+                    <p className="mt-1 text-gray-600">03182527981</p>
                   </div>
                 </div>
 
@@ -76,7 +76,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">Email</h3>
-                    <p className="mt-1 text-gray-600">support@elegance.com</p>
+                    <p className="mt-1 text-gray-600">ar4943098@gmail.com</p>
                   </div>
                 </div>
               </div>
