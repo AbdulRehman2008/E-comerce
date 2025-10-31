@@ -219,7 +219,8 @@ const AdminDashboard = () => {
       <nav className="mt-6 px-3 flex-1 overflow-y-auto">
         {[
           { id: 'overview', label: 'Overview', icon: FaChartLine },
-          { id: 'orders', label: 'Orders', icon: FaShoppingCart }
+          { id: 'orders', label: 'Orders', icon: FaShoppingCart },
+          { id: 'products', label: 'Products', icon: FaBox }
         ].map((item) => (
           <button
             key={item.id}
@@ -464,7 +465,15 @@ const AdminDashboard = () => {
           <h2 className="text-3xl font-bold text-gray-900">Product Management</h2>
           <p className="text-gray-600 mt-1">Manage your product catalog</p>
         </div>
-        <div className="mt-4 sm:mt-0" />
+        <div className="mt-4 sm:mt-0 flex gap-3">
+          <button 
+            onClick={() => setShowAddProductModal(true)}
+            className="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+          >
+            <FaPlus className="inline mr-2" />
+            Add Product
+          </button>
+        </div>
       </div>
       
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
@@ -570,6 +579,7 @@ const AdminDashboard = () => {
     switch (activeTab) {
       case 'overview': return <OverviewTab />;
       case 'orders': return <OrdersTab />;
+      case 'products': return <ProductsTab />;
       default: return <OverviewTab />;
     }
   };
@@ -599,12 +609,12 @@ const AdminDashboard = () => {
 
       {/* Add Product Modal */}
       {showAddProductModal && (
-        <div className="fixed inset-0 z-50 overflow-y-auto">
-          <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onClick={() => setShowAddProductModal(false)}></div>
-            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+        <div className="fixed inset-0 z-50">
+          <div className="absolute inset-0 bg-gray-500 bg-opacity-75" onClick={() => setShowAddProductModal(false)}></div>
+          <div className="relative z-50 w-full h-full flex items-center justify-center px-4 py-6">
+            <div className="w-full max-w-lg bg-white rounded-lg shadow-xl overflow-hidden">
               <form onSubmit={handleAddProduct}>
-                <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div className="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-lg font-medium text-gray-900">Add New Product</h3>
                     <button
