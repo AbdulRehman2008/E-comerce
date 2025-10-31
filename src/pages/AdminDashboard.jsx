@@ -203,6 +203,10 @@ const AdminDashboard = () => {
       const totalRevenue = orders.reduce((sum, o) => sum + Number(o.total || 0), 0);
       return { label: 'Total Revenue', value: `$${totalRevenue.toFixed(2)}`, icon: FaChartLine, color: 'text-green-600', bgColor: 'bg-green-50' };
     })(),
+    (() => {
+      const totalProducts = products.length;
+      return { label: 'Total Products', value: String(totalProducts), icon: FaBox, color: 'text-purple-600', bgColor: 'bg-purple-50' };
+    })(),
   ];
 
   const filteredOrders = orders.filter(order => {
