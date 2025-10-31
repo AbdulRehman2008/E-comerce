@@ -89,6 +89,8 @@ const AdminDashboard = () => {
       price: parseFloat(newProduct.price),
       stock: parseInt(newProduct.stock || '0'),
       createdAt: Date.now(),
+      createdBy: (adminAuth.currentUser && adminAuth.currentUser.uid) || null,
+      createdByEmail: (adminAuth.currentUser && adminAuth.currentUser.email) || null,
     });
     setNewProduct({ name: '', price: '', category: '', description: '', image: '', stock: '' });
     setShowAddProductModal(false);
@@ -109,6 +111,17 @@ const AdminDashboard = () => {
       await deleteDoc(doc(db, 'orders', orderId));
     } catch (e) {
       console.error('Failed to delete order', e);
+    }
+  };
+
+  const handleDeleteProduct = async (productId, createdBy) => {
+    try {
+      if (createdBy && adminAuth.currentUser && createdBy !== adminAuth.currentUser.uid) {
+        return;
+      }
+      await deleteDoc(doc(db, 'products', productId));
+    } catch (e) {
+      console.error('Failed to delete product', e);
     }
   };
 
@@ -492,7 +505,12 @@ const AdminDashboard = () => {
                   <p className="text-sm text-gray-600 mb-1">{product.category}</p>
                   <p className="text-lg font-bold mb-2 text-gray-900">${product.price}</p>
                   <div className="flex-1 text-gray-500 text-sm mb-2">{product.description}</div>
-                  <div className="text-xs text-gray-400">Stock: {product.stock}</div>
+                  <div className="text-xs text-gray-400 mb-3">Stock: {product.stock}</div>
+                  {(adminAuth.currentUser && (!product.createdBy || product.createdBy === adminAuth.currentUser.uid)) && (
+                    <button onClick={() => handleDeleteProduct(product.id, product.createdBy)} className="self-end text-red-600 hover:text-red-800 p-1 rounded hover:bg-red-50" title="Delete product">
+                      <FaTrash />
+                    </button>
+                  )}
                 </div>
               ))}
             </div>
