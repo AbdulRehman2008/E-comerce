@@ -1,0 +1,59 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDelay {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  40% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fade-in-delay {
+  animation: fadeInDelay 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fadeInDelay 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Custom text shadow for better readability */
+.text-shadow-lg {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Add hover focus styles */
+button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Active state animation */
+button:active {
+  transition-duration: 150ms;
+}
+
+/* Add smooth transition for slider arrows */
+.group:hover button {
+  opacity: 1;
+  transform: translateX(0);
+}

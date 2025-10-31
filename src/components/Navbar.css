@@ -1,0 +1,41 @@
+.nav-link {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Color variations */
+.nav-link.scrolled::after {
+  background-color: #111827; /* gray-900 */
+}
+
+.nav-link.not-scrolled::after {
+  background-color: white;
+}
+
+.nav-link.scrolled:hover {
+  color: #4B5563; /* gray-600 */
+}
+
+.nav-link.not-scrolled:hover {
+  color: #D1D5DB; /* gray-300 */
+}
